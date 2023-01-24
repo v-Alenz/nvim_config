@@ -23,3 +23,6 @@ db.custom_center = {
         action = 'Telescope live_grep',
         shortcut = 'SPC f w' },
 }
+
+
+vim.keymap.set("n", "<leader>;", ":Dashboard<CR>")

@@ -159,6 +159,23 @@ return require('packer').startup(function(use)
       end
   }
 
+  -- DAP (mfussenegger/nvim-dap)
+  -- Debug Adapter Protocol in nvim
+  use (
+    'mfussenegger/nvim-dap'
+  )
+  -- DAP UI (rcarriga/nvim-dap-ui)
+  -- Ui grafica per DAP
+  use {
+      "rcarriga/nvim-dap-ui",
+      requires = {"mfussenegger/nvim-dap"}
+  }
+  -- DAP Languages
+  -- Serie di server dap per vari linguaggi
+
+    -- Python (mfussenegger/nvim-dap-python)
+    use ('mfussenegger/nvim-dap-python')
+
 --
 -- PLUGINS_END
 --
