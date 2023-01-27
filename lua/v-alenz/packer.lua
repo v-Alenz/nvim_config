@@ -131,19 +131,20 @@ return require('packer').startup(function(use)
   }
 
 
+  -- Dashboard (glepnir/dashboard-nvim)
+  -- Aggiunge una pagina iniziale a vim
+  use {
+    'glepnir/dashboard-nvim',
+    requires = {'nvim-tree/nvim-web-devicons'}
+ }
+
+
   -- Airline (vim-airline/vim-airline)
   -- Aggiunge la barra di stato personalizzata
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-
-
-  -- Dashboard (glepnir/dashboard-nvim)
-  -- Aggiunge una pagina iniziale a vim
-  use (
-    'glepnir/dashboard-nvim'
-  )
+       'nvim-lualine/lualine.nvim',
+       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+     }
 
 
   -- Which Key (folke/which-key.nvim)

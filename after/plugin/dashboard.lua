@@ -1,28 +1,62 @@
+local db = require('dashboard')
 local home = os.getenv('HOME')
-local db = require("dashboard")
 
-db.preview_command = 'cat | lolcat -F 0.3'
-db.preview_file_path = home .. '/.config/nvim/static/asciiarts/ahegao.cat'
-db.preview_file_height = 17--14
-db.preview_file_width = 88--104
 
-db.custom_center = {
-    { icon = '  ',
+db.setup({
+  theme = 'doom',
+  config = {
+     header = {
+     }, --your header
+     center = {
+    {
+        icon = '  ',
         desc = 'Find  File                              ',
         action = 'Telescope find_files find_command=rg,--hidden,--files',
-        shortcut = 'SPC f f' },
-    { icon = '  ',
+        key = 'SPC f f',
+        icon_hi = 'Title',
+        desc_hi = 'String',
+        key_hi = 'Number',
+     },
+    {
+        icon = '  ',
         desc = 'Git Repo Browser                        ',
         action = 'Telescope git_files',
-        shortcut = 'CNT + f' },
-    { icon = '  ',
+        key = 'CNT + f',
+        icon_hi = 'Title',
+        desc_hi = 'String',
+        key_hi = 'Number',
+     },
+    {
+        icon = '  ',
         desc = 'Harpoon Files                           ',
-        shortcut = 'CNT + e' },
-    { icon = '  ',
+        key = 'CNT + e',
+        icon_hi = 'Title',
+        desc_hi = 'String',
+        key_hi = 'Number',
+     },
+    {
+        icon = '  ',
         desc = 'Find  word                              ',
         action = 'Telescope live_grep',
-        shortcut = 'SPC f w' },
-}
-
-
-vim.keymap.set("n", "<leader>;", ":Dashboard<CR>")
+        key = 'SPC f w',
+        icon_hi = 'Title',
+        desc_hi = 'String',
+        key_hi = 'Number',
+     },
+     },
+     footer = {
+        'Wetting anime girls since 2014'
+     }  --your footer
+  },
+  hide = {
+     statusline   = true,
+     tabline      = true,
+     winbar       = true,
+  },
+  preview = {
+     command      = 'cat | lolcat -F 0.3',
+     file_path    = home .. '/.config/nvim/static/asciiarts/ahegao.cat',
+     file_height  = 17,
+     file_width   = 88,
+  },
+})
