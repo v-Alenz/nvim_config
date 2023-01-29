@@ -177,6 +177,11 @@ return require('packer').startup(function(use)
     -- Python (mfussenegger/nvim-dap-python)
     use ('mfussenegger/nvim-dap-python')
 
+
+  -- Leap (ggandor/leap.nvim)
+  -- Salta nei files alla velocita' della luce
+  use ('ggandor/leap.nvim')
+
 --
 -- PLUGINS_END
 --
