@@ -88,6 +88,13 @@ return require('packer').startup(function(use)
   )
 
 
+  -- Visual Multi (mg979/vim-visual-multi)
+  -- Due cursori sono molto meglio di uno solo
+  use(
+    'mg979/vim-visual-multi'
+  )
+
+
   -- NerdTree (preservim/nerdtree)
   -- Visualizza il filesistem del progetto
   -- use (

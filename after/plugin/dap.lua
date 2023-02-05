@@ -9,6 +9,7 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
+local home = os.getenv('HOME')
 
 --
 -- SETUP
@@ -25,6 +26,40 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+
+-- 
+-- DAP CONFIGURATIONS
+--
+
+-- CPP
+local dap = require('dap')
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = home .. '/.config/nvim/dap/cppdbg-vscode/extension/debugAdapters/bin/OpenDebugAD7',
+}
+
+dap.configurations.cpp = {
+  {
+    name = "Launch file",
+    type = "cppdbg",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopAtEntry = true,
+  },
+}
+
+dap.configurations.c = dap.configurations.cpp
+-- !CPP
+
+
+--
+--
+--
 
 --
 -- END SETUP
