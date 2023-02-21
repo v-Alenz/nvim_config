@@ -189,6 +189,10 @@ return require('packer').startup(function(use)
   -- Salta nei files alla velocita' della luce
   use ('ggandor/leap.nvim')
 
+  -- Tmux Navigator (christoomey/vim-tmux-navigator)
+  -- Tmux e nvim fiventano una cosa sola
+  use ('christoomey/vim-tmux-navigator')
+
 --
 -- PLUGINS_END
 --
