@@ -14,7 +14,7 @@
 --
 
 --Non usare il background della colorscheme ma quello del terminale
-local default_bg = true
+local default_bg = false
 
 --
 -- OPZIONI_END
@@ -25,8 +25,15 @@ local default_bg = true
 -- FUNZIONI
 --
 
+require("catppuccin").setup({
+    flavour = "mocha",
+    transparent_background = true,
+})
+
+require("catppuccin").load()
+
 function ColorMyPencils(color)
-	color = color or "dracula"
+	color = color or "catppuccin"
 	vim.cmd.colorscheme(color)
 
 	if default_bg then
@@ -35,7 +42,6 @@ function ColorMyPencils(color)
 	end
 end
 
-ColorMyPencils(color)
 
 --
 -- FUNZIONI_END

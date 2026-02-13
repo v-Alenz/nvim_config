@@ -39,17 +39,12 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    
 
-
-    -- Dracula Color Scheme (dracula/vim)
-    -- Il miglior tema che l'essere umano abbia mai concepito
-    use ({
-        'dracula/vim',
-        as = 'dracula',
-        config = function()
-            vim.cmd('colorscheme dracula')
-        end
-    })
+    -- Catppuccin Color Scheme (catppuccin/nvim)
+    use { 
+        "catppuccin/nvim", as = "catppuccin", 
+    }
 
 
     -- TreeSitter (nvim-treesitter/nvim-treesitter)
@@ -98,14 +93,14 @@ return require('packer').startup(function(use)
 
     -- NerdTree (preservim/nerdtree)
     -- Visualizza il filesistem del progetto
-    -- use (
-    --   'preservim/nerdtree'
-    -- )
+    use (
+      'preservim/nerdtree'
+    )
     -- VimIcons (ryanoasis/vim-devicons)
     -- Aggiunge le icone a NerdTree
-    -- use(
-    --   'ryanoasis/vim-devicons'
-    -- )
+    use(
+      'ryanoasis/vim-devicons'
+    )
 
 
     -- LSP-Zero (VonHeikemen/lsp-zero.nvim)
@@ -154,6 +149,10 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
+    -- Nvim-NIO (nvim-neotest/nvim-nio)
+    -- I/O Asincrono in nvim
+    use { "nvim-neotest/nvim-nio" }
+
 
     -- Which Key (folke/which-key.nvim)
     -- Mostra tabella dei comandi quando li inserisci
@@ -168,31 +167,6 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- DAP (mfussenegger/nvim-dap)
-    -- Debug Adapter Protocol in nvim
-    use (
-    'mfussenegger/nvim-dap'
-    )
-    -- DAP UI (rcarriga/nvim-dap-ui)
-    -- Ui grafica per DAP
-    use {
-        "rcarriga/nvim-dap-ui",
-        requires = {"mfussenegger/nvim-dap"}
-    }
-    -- DAP Languages
-    -- Serie di server dap per vari linguaggi
-
-    -- Python (mfussenegger/nvim-dap-python)
-    use ('mfussenegger/nvim-dap-python')
-
-
-    -- Leap (ggandor/leap.nvim)
-    -- Salta nei files alla velocita' della luce
-    use ('ggandor/leap.nvim')
-
-    -- Tmux Navigator (christoomey/vim-tmux-navigator)
-    -- Tmux e nvim diventano una cosa sola
-    use ('christoomey/vim-tmux-navigator')
 
     -- Toogle Term (akinsho/toggleterm.nvim)
     -- Terminali, terminali, terminali e terminali!
@@ -204,10 +178,18 @@ return require('packer').startup(function(use)
     -- Un upgrade visivo davvero interessante (in fase sperimentale)
     use { "folke/noice.nvim",
     requires = {
-        {"MunifTanjim/nui.nvim"},
-        {"rcarriga/nvim-notify"},
+            {"MunifTanjim/nui.nvim"},
+            {"rcarriga/nvim-notify"},
+        }
     }
-}
+
+    -- Oil (stevearc/oil.nvim)
+    -- Gestisci il Filesystem come fosse un qualsiasi file
+    use {'stevearc/oil.nvim', 
+    config = function() 
+        require("oil").setup()
+    end,}
+
 
 --
 -- PLUGINS_END
